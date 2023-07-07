@@ -1,4 +1,4 @@
-package com.example.challenge.answer;
+package com.example.challenge.user;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,7 +10,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Answer {
+public class SiteUser {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

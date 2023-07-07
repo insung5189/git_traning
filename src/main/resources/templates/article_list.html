@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>게시글 목록</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<a th:href="@{/article/create}">게시글 등록하기</a>
+<table>
+    <thead>
+    <tr>
+        <th>게시글 ID</th>
+        <th>제목</th>
+        <th>작성일시</th>
+        <th>수정 / 삭제</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="article : ${articleList}">
+        <td>
+            <a th:href="@{|/article/detail/${article.id}|}" th:text="${article.id}"></a>
+        </td>
+        <td>
+            <a th:href="@{|/article/detail/${article.id}|}" th:text="${article.subject}"></a>
+        </td>
+        <td>
+            <a th:href="@{|/article/detail/${article.id}|}" th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}"></a>
+        </td>
+        <td>
+            <a th:href="@{|/article/modify/${article.id}|}">수정하기</a>
+            <span> / </span>
+            <a th:href="@{|/article/delete/${article.id}|}">삭제하기</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

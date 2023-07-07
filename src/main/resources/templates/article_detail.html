@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>게시글 상세보기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        div {
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<h2 th:text="${article.subject}"></h2>
+<div th:text="${'게시글 id : ' + article.id}"></div>
+<div th:text="${article.content}"></div>
+<div th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}"></div>
+
+<a th:href="@{|/article/modify/${article.id}|}">수정하기</a>
+<span> / </span>
+<a th:href="@{|/article/delete/${article.id}|}">삭제하기</a>
+<span> / </span>
+<a th:href="@{/article/list}">게시글 목록으로 이동하기</a>
+</body>
+</html>
