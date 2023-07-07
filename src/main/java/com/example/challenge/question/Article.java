@@ -22,11 +22,4 @@ public class Article {
     private String content;
 
     private LocalDateTime createDate;
-//    @OneToMany(mappedBy = "article", cascade = CascadeType.REMOVE)
-//    private List<Answer> answerList;
-//    @ManyToOne
-//    private SiteUser author;
-//    private LocalDateTime modifyDate;
-//    @ManyToMany
-//    Set<SiteUser> voter;
 }
